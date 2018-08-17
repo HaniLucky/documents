@@ -16,3 +16,11 @@
 5.中文件文件名提交时乱码
 	git config --global core.quotepath false
 	git config core.quotepath false
+	
+6.删除文件
+	git rm 我的文件
+	git rm -r 我的文件夹/
+		此处-r表示递归所有子目录，如果你要删除的，是空的文件夹，此处可以不用带上-r。
+		提交代码
+	git commit -m"我的修改"
+	git push -u origin master
