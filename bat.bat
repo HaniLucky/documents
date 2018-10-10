@@ -1,6 +1,6 @@
 @echo off
 git pull
 git add .
-git commit -m '提交代码的注释'
+git commit -m 'bat/Auto/Commit'
 git push -u origin master
 pause
