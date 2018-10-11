@@ -1,6 +1,3 @@
-****异常的标准处理
-
-```
 package com.covet.testproject;
 
 import org.apache.log4j.Logger;
@@ -151,7 +148,3 @@ public class TestException {
 	}
 
 }
-
-
-```
-
