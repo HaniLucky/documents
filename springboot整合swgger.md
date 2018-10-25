@@ -37,3 +37,10 @@ com.didispace.swagger.SwaggerProperties[配置类]
 ​	Controller类方法上添加注解`@ApiOperation`
 
 ​	`	@ApiOperation(value="测试接口", notes="测试Hello World")`
+
+##### 5.访问地址
+
+​	`http://127.0.0.1:8080/swagger-ui.html#!/`
+
+
+
