@@ -17,7 +17,19 @@
     }  
     public void init(FilterConfig filterConfig) {}  
     public void destroy() {}  
-    }  
+    }
 ######2.添加@CrossOrigin注解
 
 `@CrossOrigin`注解可以作用于Controller上也可以作用于方法上
+
+
+
+
+
+浏览器限制  浏览器禁止检查
+
+XHR JSONP
+
+跨域  被调用方
+
+​	 调用方

@@ -287,7 +287,10 @@ select population,
 from temp;
 
 
-
-
+-- 解决小数点和字符串连接  0不展示的问题
+SELECT trunc(to_number('0.222'),2) from dual;
+SELECT  to_char(0.222)||'a' from dual;
+SELECT  to_char(0.222,'fm9999990.9999')||'a' from dual;
+select to_char(0.12,'fm9999990.9999') || '%' from dual;
 ```
 

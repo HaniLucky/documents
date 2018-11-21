@@ -1,6 +1,6 @@
 [TOC]
 
-##### 费波纳茨数列
+##### 费波纳茨数列(递归经典案例)
 
 ```
 /**
@@ -48,3 +48,16 @@ public static void getDirName(String fileDirName) throws IOException{
 }
 ```
 
+##### BigDecimal API
+
+目的：java中去掉BigDecimal后无用的零
+
+现象：mysql中A表中的B字段的类型是decimal类型，小数位数是三位，某一条数据的值是0.3，在java中查询出来的结果是0.300，这样显示在页面中不太好看，用户希望看到是0.3。
+
+解决办法：
+
+可以使用 stripTrailingZeros().toPlainString()来解决
+
+
+
+idxSplit.getIssueVal().setScale(2, BigDecimal.ROUND_DOWN).stripTrailingZeros().toPlainString()
