@@ -1,0 +1,18 @@
+-- 查看日志相关配置
+show variables like 'log_%';
+
+-- 查看日志是否开启及位置
+show variables like '%general%';
+-- 查看日志的输出类型
+show variables like '%log_output%';
+
+-- 查询 查询慢日志功能是否开启
+-- log_queries_not_using_indexes
+show variables like '%quer%';
+show variables like '%slow_query_log%';
+show variables like 'slow_query_log_file';
+show variables like 'long_query_time';
+show variables like 'log_queries_not_using_indexes';
+-- 查询慢sql个数
+show global status like '%slow%';
+
