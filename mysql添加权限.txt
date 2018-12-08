@@ -1,0 +1,84 @@
+-- 创建一个新用户
+insert into mysql.user(Host,User,Password) values("%","erp",password("123456"));
+-- SELECT * FROM mysql.`user`;
+-- 创建一个新数据库
+create database testDB;
+-- 刷新权限
+flush privileges;
+
+create database testDB DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+-- 给表添加用户
+grant all privileges on `my_project`.* to 'erp'@'%' identified by '123456';
+-- grant all privileges on `testdb`.* to 'test'@'localhost' identified by '123456';
+flush privileges;
+
+
+-- 创建新用户
+insert into mysql.user(Host,User,Password) values("%","erp",password("123456"));
+-- 给新用户添加表权限
+grant all privileges on `my_project`.* to 'erp'@'%' identified by '123456';
+-- 刷新权限
+flush privileges;
+
+
+
+
+-- 2.为用户授权
+-- 
+-- 　　授权格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by "密码";　
+-- 
+-- 　　2.1 登录MYSQL（有ROOT权限），这里以ROOT身份登录：
+-- 
+-- 　　@>mysql -u root -p
+-- 
+-- 　　@>密码
+-- 
+-- 　　2.2 首先为用户创建一个数据库(testDB)：
+-- 
+-- 　　mysql>create database testDB;
+-- 
+-- 　　2.3 授权test用户拥有testDB数据库的所有权限（某个数据库的所有权限）：
+-- 
+-- 　　 mysql>grant all privileges on testDB.* to test@localhost identified by '1234';
+-- 
+--  　　mysql>flush privileges;//刷新系统权限表
+-- 
+-- 　　格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by "密码";　
+-- 
+-- 　　2.4 如果想指定部分权限给一用户，可以这样来写:
+-- 
+-- 　　mysql>grant select,update on testDB.* to test@localhost identified by '1234';
+-- 
+-- 　　mysql>flush privileges; //刷新系统权限表
+-- 
+-- 　　2.5 授权test用户拥有所有数据库的某些权限： 　 
+-- 
+-- 　　mysql>grant select,delete,update,create,drop on *.* to test@"%" identified by "1234";
+-- 
+--      //test用户对所有数据库都有select,delete,update,create,drop 权限。
+-- 
+-- 　 //@"%" 表示对所有非本地主机授权，不包括localhost。（localhost地址设为127.0.0.1，如果设为真实的本地地址，不知道是否可以，没有验证。）
+-- 
+-- 　//对localhost授权：加上一句grant all privileges on testDB.* to test@localhost identified by '1234';即可。
+-- 
+-- Delete FROM user Where User='test' and Host='localhost';
+-- flush privileges;
+-- drop database testDB; //删除用户的数据库
+-- 删除账户及权限：>drop user 用户名@'%';
+-- drop user erp@'%';
+-- 　　　　　　　　>drop user 用户名@ localhost; 
+-- 4. 修改指定用户密码
+-- update mysql.user set password=password('新密码') where User="test" and Host="localhost";
+--  mysql>flush privileges;
+-- 5. 列出所有数据库
+-- show database;
+-- 6. 切换数据库
+-- use '数据库名';
+-- 7. 列出所有表
+-- show tables;
+-- 显示数据表结构
+DESCRIBE 表名;
+
+-- 9. 删除数据库和数据表
+　　drop DATABASE -- 数据库名;
+　　drop TABLE -- 数据表名;
